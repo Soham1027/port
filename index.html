@@ -33,10 +33,96 @@
 </head>
 
 <body>
+  <style>
+    @keyframes neon-breathing {
+        0%, 100% {
+            box-shadow: 0 0 15px 4px #00ffcc, 0 0 30px 6px #00ffcc;
+        }
+        50% {
+            box-shadow: 0 0 25px 8px #00ffcc, 0 0 50px 10px #00ffcc;
+        }
+    }
+
+    /* Style for the profile container */
+    .profile-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Card-like design for the profile picture */
+    .profile-card {
+        border-radius: 50%; /* Makes the image appear circular */
+        overflow: hidden; /* Ensures the image doesn't go outside the container */
+        width: 120px; /* Set the size of the profile image container */
+        height: 120px;
+        box-shadow: 0 0 15px 4px #00ffcc, 0 0 30px 6px #00ffcc; /* Default glow */
+        animation: neon-breathing 2s infinite; /* Apply the breathing animation */
+        transition: transform 0.3s ease; /* Smooth hover zoom-in */
+    }
+
+    /* Hover effect for the profile card */
+    .profile-card:hover {
+        transform: scale(1.1); /* Slight zoom-in effect */
+    }
+
+    /* Styling for the profile image */
+    .profile-pic {
+        width: 120px; /* Matches the size of the container */
+        height: 120px;
+        object-fit: cover; /* Maintains aspect ratio and covers the container */
+        display: block; /* Ensures no extra margins or spacing */
+    }
+
+    h1 span {
+      display: inline-block; /* Ensures the hover effect applies smoothly */
+      transition: transform 0.3s ease-in-out; /* Smooth transition for zoom-in */
+  }
+
+  /* Hover effect */
+  h1 span:hover {
+      transform: scale(1.2); /* Zoom-in effect */
+  }
+      /* Header styling */
+    header {
+        position: relative;
+        height: 800px;
+        min-height: 500px;
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* Background video styling */
+    header video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the video covers the area without stretching */
+        z-index: -1; /* Keeps the video behind the content */
+    }
+
+    /* Optional: Styling for text content */
+    header h1 {
+        position: relative;
+        color: #fff;
+        z-index: 1; /* Ensures the text is above the video */
+        padding-top: 20%;
+        font-size: 3rem;
+    }
+
+</style>
 
    <!-- Header
    ================================================== -->
    <header id="home">
+    <!-- Video background -->
+    <!-- <video autoplay muted loop>
+      <source src="images/mylivewallpapers-com-Goku-Cloud-Sunset-FHD.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video> -->
 
       <nav id="nav-wrap">
 
@@ -55,22 +141,23 @@
       </nav> <!-- end #nav-wrap -->
 
       <div class="row banner">
-         <div class="banner-text">
-            <h1 class="responsive-headline">I'm Jonathan Doe.</h1>
-            <h3>I'm a Manila based <span>graphic designer</span>, <span>illustrator</span> and <span>webdesigner</span> creating awesome and
-            effective visual identities for companies of all sizes around the globe. Let's <a class="smoothscroll" href="#about">start scrolling</a>
-            and learn more <a class="smoothscroll" href="#about">about me</a>.</h3>
-            <hr />
-            <ul class="social">
-               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-               <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-               <li><a href="#"><i class="fa fa-skype"></i></a></li>
-            </ul>
-         </div>
+        <div class="banner-text">
+           <h1 class="responsive-headline">I'm Soham Ghayal.</h1>
+           <h3>I'm a <span>Python Developer</span>, specializing in <span>Backend development</span>. I create efficient, scalable, and robust systems that power seamless user experiences. Let's <a class="smoothscroll" href="#about">start scrolling</a> and learn more <a class="smoothscroll" href="#about">about me</a>.</h3>
+           <hr />
+           <ul class="social">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a href="#"><i class="fa fa-skype"></i></a></li>
+           </ul>
+        </div>
+     </div>
+     
+     
       </div>
 
       <p class="scrolldown">
@@ -83,56 +170,48 @@
    <!-- About Section
    ================================================== -->
    <section id="about">
+    <div class="row">
+      <div class="three columns profile-container">
+        <div class="profile-card">
+            <img class="profile-pic" src="images/Picsart_24-07-16_11-29-10-130.png" alt="Soham Ghayal's Profile Picture" />
+        </div>
+    </div>
+    
 
-      <div class="row">
-
-         <div class="three columns">
-
-            <img class="profile-pic"  src="images/profilepic.jpg" alt="" />
-
-         </div>
-
-         <div class="nine columns main-col">
-
+        <div class="nine columns main-col">
             <h2>About Me</h2>
-
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-            sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+            <p>
+                I'm Soham Ghayal, a Python Developer. Passionate about creating awesome and effective code, I bring ideas to life for companies of all sizes around the globe. When I’m not developing, I’m constantly learning, exploring new technologies, and honing my backend skills with frameworks like Django and REST.  
+            </p>
+            <p>
+                As an enthusiastic Python/Django developer, I thrive on tackling challenges and pushing creative boundaries. With a strong foundation in backend development and a knack for elegant and functional designs, I’m committed to delivering exceptional results every day.
             </p>
 
             <div class="row">
+                <div class="columns contact-details">
+                    <h2>Contact Details</h2>
+                    <p class="address">
+                        <span>Soham Ghayal</span><br>
+                        <span>Ahmedabad, Gujarat</span><br>
+                        <span><a href="tel:+91940945335">+91 940945335</a></span><br>
+                        <span>
+                            <a href="https://mail.google.com/mail/?view=cm&to=sohamghayal02@gmail.com" target="_blank">sohamghayal02@gmail.com</a>
+                        </span>
+                    </p>
+                </div>
 
-               <div class="columns contact-details">
-
-                  <h2>Contact Details</h2>
-                  <p class="address">
-						   <span>Jonathan Doe</span><br>
-						   <span>1600 Amphitheatre Parkway<br>
-						         Mountain View, CA 94043 US
-                     </span><br>
-						   <span>(123)456-7890</span><br>
-                     <span>anyone@website.com</span>
-					   </p>
-
-               </div>
-
-               <div class="columns download">
-                  <p>
-                     <a href="#" class="button"><i class="fa fa-download"></i>Download Resume</a>
-                  </p>
-               </div>
-
+                <div class="columns download">
+                    <p>
+                        <a href="https://drive.google.com/uc?id=1LkeUbza0PcOhRexgwi7i1fHPGfNkt0Gw&export=download" class="button">
+                            <i class="fa fa-download"></i>Download Resume
+                        </a>
+                    </p>
+                </div>
             </div> <!-- end row -->
+        </div> <!-- end .main-col -->
+    </div>
+</section> <!-- About Section End -->
 
-         </div> <!-- end .main-col -->
-
-      </div>
-
-   </section> <!-- About Section End-->
 
 
    <!-- Resume Section
@@ -144,7 +223,7 @@
       <div class="row education">
 
          <div class="three columns header-col">
-            <h1><span>Education</span></h1>
+          <h1><span>Education</span></h1>
          </div>
 
          <div class="nine columns main-col">
@@ -153,15 +232,15 @@
 
                <div class="twelve columns">
 
-                  <h3>University of Life</h3>
-                  <p class="info">Master in Graphic Design <span>&bull;</span> <em class="date">April 2007</em></p>
+                  <h3>Ahmedabad Institute Of Technology</h3>
+                  <p class="info">Bachelor of Engineering <span>&bull;</span> <em class="date">July 2023</em></p>
 
                   <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                  ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                  Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Nullam dictum felis eu pede mollis pretium.
-                  </p>
+                    During my time at Ahmedabad Institute of Technology, I pursued a Bachelor of Engineering in Computer Science, achieving a CGPA of 7.66. Apart from academics, I actively participated in sports tournaments, tech fests, and various other extracurricular activities, which helped me develop leadership, teamwork, and time-management skills. These experiences complemented my technical abilities and contributed to shaping me into a well-rounded individual.
+                </p>
+                
+
+                
 
                </div>
 
@@ -171,15 +250,13 @@
 
                <div class="twelve columns">
 
-                  <h3>School of Cool Designers</h3>
-                  <p class="info">B.A. Degree in Graphic Design <span>&bull;</span> <em class="date">March 2003</em></p>
-
-                  <p>
-                  This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                  Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
-                  nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan
-                  ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat
-                  </p>
+                <h3>A.B. Higher Secondary School</h3>
+                <p class="info">Higher Studies (12th) <span>&bull;</span> <em class="date">April 2019</em></p>
+                
+                <p>
+                    I completed my 12th grade at A.B. Higher Secondary School with a focus on the Science Stream, achieving an overall score of 72%. My studies covered core subjects like Physics, Chemistry, and Mathematics, which laid the groundwork for my future academic pursuits. In addition to academics, I actively participated in extracurricular activities, including science exhibitions and sports, helping me develop a balanced skill set.
+                </p>
+                
 
                </div>
 
