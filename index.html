@@ -918,37 +918,38 @@ ul.social li a:hover {
       <div class="row">
    
          <div class="eight columns">
-            <form id="contactForm" name="contactForm" action="/api/sendEmail" method="post" onsubmit="submitForm(event)">
-              <fieldset>
-                <div>
-                  <label for="contactName">Name <span class="required">*</span></label>
-                  <input type="text" id="contactName" name="contactName" required>
-                </div>
-                <div>
-                  <label for="contactEmail">Email <span class="required">*</span></label>
-                  <input type="email" id="contactEmail" name="contactEmail" required>
-                </div>
-                <div>
-                  <label for="contactSubject">Subject</label>
-                  <input type="text" id="contactSubject" name="contactSubject">
-                </div>
-                <div>
-                  <label for="contactMessage">Message <span class="required">*</span></label>
-                  <textarea id="contactMessage" name="contactMessage" rows="15" required></textarea>
-                </div>
-                <div>
-                  <button type="submit">Submit</button>
-                  <span id="image-loader" style="display:none;">
-                    <img alt="" src="images/loader.gif">
-                  </span>
-                </div>
-              </fieldset>
+            <form id="contactForm" name="contactForm" action="https://formspree.io/f/meoegqeb" method="post">
+                <fieldset>
+                    <div>
+                        <label for="contactName">Name <span class="required">*</span></label>
+                        <input type="text" id="contactName" name="name" required>
+                    </div>
+                    <div>
+                        <label for="contactEmail">Email <span class="required">*</span></label>
+                        <input type="email" id="contactEmail" name="email" required>
+                    </div>
+                    <div>
+                        <label for="contactSubject">Subject</label>
+                        <input type="text" id="contactSubject" name="subject">
+                    </div>
+                    <div>
+                        <label for="contactMessage">Message <span class="required">*</span></label>
+                        <textarea id="contactMessage" name="message" rows="15" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit">Submit</button>
+                        <span id="image-loader" style="display:none;">
+                            <img alt="" src="images/loader.gif">
+                        </span>
+                    </div>
+                </fieldset>
             </form>
             <div id="message-warning">Error. Please try again.</div>
             <div id="message-success">
-              <i class="fa fa-check"></i> Your message was sent, thank you!
+                <i class="fa fa-check"></i> Your message was sent, thank you!
             </div>
-          </div>
+        </div>
+        
    
          <aside class="four columns footer-widgets">
    
@@ -1037,42 +1038,34 @@ ul.social li a:hover {
       };
    </script>
    <script>
-      async function submitForm(event) {
-        event.preventDefault(); // Prevent form submission
-  
-        const form = document.getElementById('contactForm');
-        const formData = new FormData(form);
-  
-        document.getElementById('image-loader').style.display = 'inline'; // Show loader
-  
-        try {
-          const response = await fetch('/api/sendEmail', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              contactName: formData.get('contactName'),
-              contactEmail: formData.get('contactEmail'),
-              contactSubject: formData.get('contactSubject'),
-              contactMessage: formData.get('contactMessage'),
-            }),
-          });
-  
-          const result = await response.json();
-  
-          if (response.status === 200) {
-            document.getElementById('message-success').style.display = 'block'; // Show success message
-            form.reset(); // Reset the form
-          } else {
-            document.getElementById('message-warning').style.display = 'block'; // Show error message
-          }
-        } catch (error) {
-          document.getElementById('message-warning').style.display = 'block'; // Show error message
-        } finally {
-          document.getElementById('image-loader').style.display = 'none'; // Hide loader
-        }
-      }
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+         event.preventDefault();
+     
+         const form = event.target;
+         const loader = document.getElementById('image-loader');
+         const messageWarning = document.getElementById('message-warning');
+         const messageSuccess = document.getElementById('message-success');
+     
+         loader.style.display = 'inline-block';
+         messageWarning.style.display = 'none';
+         messageSuccess.style.display = 'none';
+     
+         fetch(form.action, {
+             method: form.method,
+             body: new FormData(form)
+         })
+         .then(response => response.json())
+         .then(data => {
+             loader.style.display = 'none';
+             messageSuccess.style.display = 'block';
+             form.reset(); // Reset form after successful submission
+         })
+         .catch(error => {
+             loader.style.display = 'none';
+             messageWarning.style.display = 'block';
+         });
+     });
+     
     </script>
 </body>
 
