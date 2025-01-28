@@ -273,6 +273,52 @@ ul.social li a:hover {
    }
 }
 
+/* contact Styling */
+#contact {
+   text-align: center;
+   padding: 50px 0;
+}
+
+#contact .header-col h1 {
+   font-size: 2.5em;
+   color: #333;
+   margin-bottom: 20px;
+}
+
+#contact .lead {
+   font-size: 1.2em;
+   color: #666;
+   margin-bottom: 40px;
+}
+
+.widget_contact {
+   text-align: center;
+}
+
+.widget_contact h4 {
+   font-size: 1.8em;
+   color: #333;
+   margin-bottom: 20px;
+}
+
+.widget_contact .address {
+   font-size: 1.2em;
+   color: #555;
+}
+
+.widget_contact .address span {
+   display: block;
+   margin-top: 5px;
+}
+/* Glow effect on hover */
+
+
+.social i {
+   font-size: 40px; /* Increase the size of the icons */
+
+}
+
+/* Optional: Add hover effect for icons */
 
 
 
@@ -297,7 +343,7 @@ ul.social li a:hover {
             <li><a class="smoothscroll" href="#about">About</a></li>
 	         <li><a class="smoothscroll" href="#resume">Resume</a></li>
             <li><a class="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
+            <!-- <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li> -->
             <li><a class="smoothscroll" href="#contact">Contact</a></li>
          </ul> <!-- end #nav -->
 
@@ -309,13 +355,15 @@ ul.social li a:hover {
            <h3>I'm a <span>Python Developer</span>, specializing in <span>Backend development</span>. I create efficient, scalable, and robust systems that power seamless user experiences. Let's <a class="smoothscroll" href="#about">start scrolling</a> and learn more <a class="smoothscroll" href="#about">about me</a>.</h3>
            <hr />
            <ul class="social">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a href="#"><i class="fa fa-skype"></i></a></li>
+              
+           
+              
+                           <li><a href="www.linkedin.com/in/soham-ghayal-805586158"><i class="fa fa-linkedin"></i></a></li>
+                           <li><a href="https://github.com/Soham1027"><i class="fa fa-github"></i></a></li>
+
+                        
+                   
+           
            </ul>
         </div>
      </div>
@@ -360,6 +408,7 @@ ul.social li a:hover {
                         <span>
                             <a href="https://mail.google.com/mail/?view=cm&to=sohamghayal02@gmail.com" target="_blank">sohamghayal02@gmail.com</a>
                         </span>
+                       
                     </p>
                 </div>
 
@@ -557,11 +606,11 @@ ul.social li a:hover {
                   <div class="item-wrap">
 
                      <a href="#modal-01" title="">
-                        <img alt="" src="images/portfolio/coffee.jpg">
+                        <img alt="" src="images/255_None_qKSUYh9d.jpeg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
-          					      <h5>Coffee</h5>
-                              <p>Illustrration</p>
+          					      <h5>Goalactico</h5>
+                              <p>Web</p>
           					   </div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
@@ -699,16 +748,16 @@ ul.social li a:hover {
 
          <div id="modal-01" class="popup-modal mfp-hide">
 
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-coffee.jpg" alt="" />
+		      <img class="scale-with-grid" src="images/255_None_qKSUYh9d.jpeg" alt="" />
 
-		      <div class="description-box">
-			      <h4>Coffee Cup</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Branding, Webdesign</span>
-		      </div>
+            <div class="description-box">
+               <h4>Goalactico</h4>
+               <p>Goalactico is a football-focused sports app designed to enhance the user experience. Whether you're tracking live scores, managing your team, or creating sports events and games, Goalactico brings you closer to the action.</p>
+               <span class="categories"><i class="fa fa-tag"></i> Football, Sports, Mobile App, Live Scores</span>
+           </div>
 
             <div class="link-box">
-               <a href="http://www.behance.net">Details</a>
+               <a href="https://github.com/Devansh1312/my">Details</a>
 		         <a class="popup-modal-dismiss">Close</a>
             </div>
 
@@ -900,75 +949,38 @@ ul.social li a:hover {
    <section id="contact">
 
       <div class="row section-head">
-   
-         <div class="two columns header-col">
-   
-            <h1><span>Get In Touch.</span></h1>
-   
-         </div>
-   
-         <div class="ten columns">
-   
-               <p class="lead">Feel free to reach out to me for any inquiries, collaboration opportunities, or just a friendly chat. I'm always open to connecting with like-minded individuals and sharing knowledge!</p>
-   
-         </div>
-   
+      
+          <div class="two columns header-col">
+              <h1><span>Get In Touch.</span></h1>
+          </div>
+          
+          <div class="ten columns">
+              <p class="lead">
+                  Feel free to reach out to me for any inquiries, collaboration opportunities, or just a friendly chat. 
+                  I'm always open to connecting with like-minded individuals and sharing knowledge!
+              </p>
+          </div>
+      
       </div>
-   
-      <div class="row">
-   
-         <div class="eight columns">
-            <form id="contactForm" name="contactForm" action="/api/sendEmail" method="POST">
-
-                <fieldset>
-                    <div>
-                        <label for="contactName">Name <span class="required">*</span></label>
-                        <input type="text" id="contactName" name="name" required>
-                    </div>
-                    <div>
-                        <label for="contactEmail">Email <span class="required">*</span></label>
-                        <input type="email" id="contactEmail" name="email" required>
-                    </div>
-                    <div>
-                        <label for="contactSubject">Subject</label>
-                        <input type="text" id="contactSubject" name="subject">
-                    </div>
-                    <div>
-                        <label for="contactMessage">Message <span class="required">*</span></label>
-                        <textarea id="contactMessage" name="message" rows="15" required></textarea>
-                    </div>
-                    <div>
-                        <button type="submit">Submit</button>
-                        <span id="image-loader" style="display:none;">
-                            <img alt="" src="images/loader.gif">
-                        </span>
-                    </div>
-                </fieldset>
-            </form>
-            <div id="message-warning">Error. Please try again.</div>
-            <div id="message-success">
-                <i class="fa fa-check"></i> Your message was sent, thank you!
-            </div>
-        </div>
+  
+      <div class="widget widget_contact">
+         <h4>Contact</h4>
+         <p class="address">
+            <a href="">Soham Ghayal</a><br>
+            <a href="https://www.google.com/maps?q=Ashraya+10,+New+Ranip,+Ahmedabad,+Gujarat,+382480" target="_blank">
+               Ashraya 10, New Ranip,<br> Ahmedabad, Gujarat, 382480
+           </a><br>
+           <a href="tel:+919409453345"><span class="glow">+91 9409453345</span></a>
+           <a href="mailto:sohamghayal02@gmail.com"><span class="glow">sohamghayal02@gmail.com</span></a>
+     
+        </p>
         
-   
-         <aside class="four columns footer-widgets">
-   
-            <div class="widget widget_contact">
-   
-                  <h4>Address and Phone</h4>
-                  <p class="address">
-                      Soham Ghayal<br>
-                      Ashraya 10,New Ranip <br>
-                      Ahmedabad, Gujarat, 382480<br>
-                      <span>+91 9409453345</span>
-                  </p>
-   
-            </div>
-   
-           
-   
-   </section> <!-- Contact Section End-->
+     </div>
+     
+  
+  </section> <!-- Contact Section End -->
+  
+  
    <!-- footer
    ================================================== -->
    <footer>
@@ -978,19 +990,22 @@ ul.social li a:hover {
          <div class="twelve columns">
 
             <ul class="social-links">
-               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-               <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-               <li><a href="#"><i class="fa fa-skype"></i></a></li>
+             
+              
+           
+              
+                  <li><a href="www.linkedin.com/in/soham-ghayal-805586158"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a href="https://github.com/Soham1027"><i class="fa fa-github"></i></a></li>
+
+               
+          
+  
+ 
             </ul>
 
             <ul class="copyright">
-               <li>&copy; 2014 CeeVee</li>
-               <li>Design by <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></li>
-               <li>Sponsored by <a rel="nofollow" href="http://www.a2hosting.com/?utm___source=styleshoutdemo&utm_medium=__cpm&utm_content=&utm_campaign=">A2Hosting</a></li>
+               <li>&copy; 2025 Soham Ghayal</li>
+              
             </ul>
 
          </div>
