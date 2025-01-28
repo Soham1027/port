@@ -83,35 +83,113 @@
   h1 span:hover {
       transform: scale(1.2); /* Zoom-in effect */
   }
-      /* Header styling */
-    header {
-        position: relative;
-        height: 800px;
-        min-height: 500px;
-        width: 100%;
-        text-align: center;
-        overflow: hidden;
-    }
 
-    /* Background video styling */
-    header video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures the video covers the area without stretching */
-        z-index: -1; /* Keeps the video behind the content */
-    }
+  /* Header Styling */
+header {
+   position: relative;
+   height: 800px;
+   min-height: 500px;
+   width: 100%;
+   background: #161415 url('images/pixel-jeff-chill-mario-2023-2.gif') no-repeat center center;
+   background-size: cover !important;
+   -webkit-background-size: cover !important;
+   text-align: center;
+   overflow: hidden;
+}
 
-    /* Optional: Styling for text content */
-    header h1 {
-        position: relative;
-        color: #fff;
-        z-index: 1; /* Ensures the text is above the video */
-        padding-top: 20%;
-        font-size: 3rem;
-    }
+/* Overlay to darken the background */
+header::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: rgba(0, 0, 0, 0.644); /* Adjust opacity here */
+   z-index: 0; /* Ensure overlay is below text */
+}
+
+/* Banner Text Styling */
+.banner-text {
+   position: relative;
+   z-index: 1; /* Ensures the text is above the overlay */
+   color: #fff;
+   padding-top: 20%;
+   font-size: 3rem;
+}
+
+/* Navigation Styling */
+#nav-wrap {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   padding: 20px;
+   z-index: 1;
+}
+
+.nav {
+   list-style: none;
+   text-align: center;
+   padding: 0;
+}
+
+.nav li {
+   display: inline-block;
+   margin-right: 20px;
+}
+
+.nav li a {
+   color: #fff;
+   font-size: 1.2rem;
+   text-decoration: none;
+   transition: color 0.3s ease;
+}
+
+.nav li a:hover {
+   color: #f39c12; /* Change to the desired hover color */
+}
+
+/* Social Icons Styling */
+ul.social {
+   text-align: center;
+   padding: 20px 0;
+}
+
+ul.social li {
+   display: inline-block;
+   margin-right: 15px;
+}
+
+ul.social li a {
+   color: #fff;
+   font-size: 1.5rem;
+   transition: color 0.3s ease;
+}
+
+ul.social li a:hover {
+   color: #f39c12; /* Change to the desired hover color */
+}
+
+/* Scrolldown Icon Styling */
+.scrolldown {
+   position: absolute;
+   bottom: 20px;
+   left: 50%;
+   transform: translateX(-50%);
+   font-size: 2rem;
+   color: #fff;
+   z-index: 1;
+}
+
+.scrolldown a {
+   color: #fff;
+   text-decoration: none;
+}
+
+
+
+
 
 </style>
 
