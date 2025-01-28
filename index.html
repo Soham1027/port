@@ -188,6 +188,91 @@ ul.social li a:hover {
 }
 
 
+/* skill */
+.skills li { 
+   list-style: none;
+   margin: 15px 0; /* Increased margin for more space between bars */
+   position: relative;
+}
+
+.bar-expand {
+   display: block;
+   height: 42px; /* Increased height of the bar for a more prominent look */
+   width: 0; /* Initial width set to 0 */
+   background-color: #3498db;
+   transition: width 2s ease-out, background-color 0.5s ease;
+   overflow: hidden; /* Ensures bubbles stay within the bar */
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.skills li em {
+   font-size: 18px; /* Increased font size for better readability */
+   margin-left: 15px; /* Added more space between the bar and skill name */
+   color: #333; /* Add a color for the skill name */
+   font-weight: bold; /* Make the skill name bold */
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+.bar-expand::after {
+   content: '';
+   position: absolute;
+   left: 50%;
+   bottom: 10px;
+   width: 100%;
+   height: 100%;
+   background: transparent;
+   z-index: -1;
+   animation: bubbleEffect 2.5s ease-in-out infinite;
+}
+
+@keyframes bubbleEffect {
+   0% {
+       opacity: 1;
+       transform: translateX(0) translateY(0) scale(0.5);
+   }
+   25% {
+       opacity: 0.8;
+       transform: translateX(25%) translateY(-20px) scale(1);
+   }
+   50% {
+       opacity: 0.5;
+       transform: translateX(50%) translateY(-40px) scale(1.2);
+   }
+   75% {
+       opacity: 0.3;
+       transform: translateX(75%) translateY(-60px) scale(1);
+   }
+   100% {
+       opacity: 0;
+       transform: translateX(100%) translateY(-80px) scale(0.5);
+   }
+}
+
+.bubble {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 10px; /* Slightly larger bubble size */
+   height: 10px;
+   background-color: rgba(255, 255, 255, 0.8);
+   border-radius: 50%;
+   animation: riseAndMoveBubble 2.5s ease-in-out infinite;
+}
+
+@keyframes riseAndMoveBubble {
+   0% {
+       transform: translateX(0) translateY(0) scale(0.5);
+       opacity: 1;
+   }
+   100% {
+       transform: translateX(100%) translateY(-100px) scale(1);
+       opacity: 0;
+   }
+}
+
 
 
 
@@ -426,34 +511,32 @@ ul.social li a:hover {
       <div class="row skill">
 
          <div class="three columns header-col">
-            <h1><span>Skills</span></h1>
+             <h1><span>Skills</span></h1>
          </div>
-
+     
          <div class="nine columns main-col">
-
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt.
-            </p>
-
-				<div class="bars">
-
-				   <ul class="skills">
-					   <li><span class="bar-expand photoshop"></span><em>Photoshop</em></li>
-                  <li><span class="bar-expand illustrator"></span><em>Illustrator</em></li>
-						<li><span class="bar-expand wordpress"></span><em>Wordpress</em></li>
-						<li><span class="bar-expand css"></span><em>CSS</em></li>
-						<li><span class="bar-expand html5"></span><em>HTML5</em></li>
-                  <li><span class="bar-expand jquery"></span><em>jQuery</em></li>
-					</ul>
-
-				</div><!-- end skill-bars -->
-
-			</div> <!-- main-col end -->
-
-      </div> <!-- End skills -->
-
+     
+             <p>
+                 As a Python backend developer, I have honed my skills in several frameworks and technologies to build scalable, efficient, and real-time applications. I am proficient in Python, Django, FastAPI, WebSockets, and have a growing interest in AI and Machine Learning to enhance my backend development expertise.
+             </p>
+     
+             <div class="bars">
+     
+                 <ul class="skills">
+                     <li><span class="bar-expand python" data-percent="80"></span><em>Python</em></li>
+                     <li><span class="bar-expand django" data-percent="85"></span><em>Django</em></li>
+                     <li><span class="bar-expand fastapi" data-percent="60"></span><em>FastAPI</em></li>
+                     <li><span class="bar-expand ai-ml" data-percent="50"></span><em>AI & Machine Learning</em></li>
+                     <li><span class="bar-expand sql" data-percent="75"></span><em>SQL</em></li>
+                     <li><span class="bar-expand api" data-percent="85"></span><em>API Development</em></li>
+                 </ul>
+     
+             </div><!-- end skill-bars -->
+     
+         </div> <!-- main-col end -->
+     
+     </div> <!-- End skills -->
+     
    </section> <!-- Resume Section End-->
 
 
@@ -758,37 +841,12 @@ ul.social li a:hover {
 
    <!-- Call-To-Action Section
    ================================================== -->
-   <section id="call-to-action">
-
-      <div class="row">
-
-         <div class="two columns header-col">
-
-            <h1><span>Get Hosting.</span></h1>
-
-         </div>
-
-         <div class="seven columns">
-
-            <h2><a rel="nofollow" href="http://www.a2hosting.com/?utm___source=styleshoutdemo&utm_medium=__cpm&utm_content=&utm_campaign=">Host This Template on A2 Hosting.</a></h2>
-            <p>300% Faster Hosting on Their SwiftServer SSDs.</p>
-
-         </div>
-
-         <div class="three columns action">
-
-            <a rel="nofollow" href="http://www.a2hosting.com/?utm___source=styleshoutdemo&utm_medium=__cpm&utm_content=&utm_campaign=" class="button">Sign Up Now</a>
-
-         </div>
-
-      </div>
-
-   </section> <!-- Call-To-Action Section End-->
+   
 
 
    <!-- Testimonials Section
    ================================================== -->
-   <section id="testimonials">
+   <!-- <section id="testimonials">
 
       <div class="text-container">
 
@@ -814,7 +872,7 @@ ul.social li a:hover {
                            </p>
                            <cite>Steve Jobs</cite>
                         </blockquote>
-                     </li> <!-- slide ends -->
+                     </li> 
 
                      <li>
                         <blockquote>
@@ -824,138 +882,91 @@ ul.social li a:hover {
                            </p>
                            <cite>Mr. Adobe</cite>
                         </blockquote>
-                     </li> <!-- slide ends -->
-
+                     </li> 
                   </ul>
 
-               </div> <!-- div.flexslider ends -->
+               </div> 
 
-            </div> <!-- div.flex-container ends -->
+            </div> 
 
-         </div> <!-- row ends -->
+         </div> 
 
-       </div>  <!-- text-container ends -->
+       </div>  
 
-   </section> <!-- Testimonials Section End-->
-
+   </section>  -->
 
    <!-- Contact Section
    ================================================== -->
    <section id="contact">
 
-         <div class="row section-head">
-
-            <div class="two columns header-col">
-
-               <h1><span>Get In Touch.</span></h1>
-
-            </div>
-
-            <div class="ten columns">
-
-                  <p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                  eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                  voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-                  </p>
-
-            </div>
-
+      <div class="row section-head">
+   
+         <div class="two columns header-col">
+   
+            <h1><span>Get In Touch.</span></h1>
+   
          </div>
-
-         <div class="row">
-
-            <div class="eight columns">
-
-               <!-- form -->
-               <form action="" method="post" id="contactForm" name="contactForm">
-					<fieldset>
-
-                  <div>
-						   <label for="contactName">Name <span class="required">*</span></label>
-						   <input type="text" value="" size="35" id="contactName" name="contactName">
-                  </div>
-
-                  <div>
-						   <label for="contactEmail">Email <span class="required">*</span></label>
-						   <input type="text" value="" size="35" id="contactEmail" name="contactEmail">
-                  </div>
-
-                  <div>
-						   <label for="contactSubject">Subject</label>
-						   <input type="text" value="" size="35" id="contactSubject" name="contactSubject">
-                  </div>
-
-                  <div>
-                     <label for="contactMessage">Message <span class="required">*</span></label>
-                     <textarea cols="50" rows="15" id="contactMessage" name="contactMessage"></textarea>
-                  </div>
-
-                  <div>
-                     <button class="submit">Submit</button>
-                     <span id="image-loader">
-                        <img alt="" src="images/loader.gif">
-                     </span>
-                  </div>
-
-					</fieldset>
-				   </form> <!-- Form End -->
-
-               <!-- contact-warning -->
-               <div id="message-warning"> Error boy</div>
-               <!-- contact-success -->
-				   <div id="message-success">
-                  <i class="fa fa-check"></i>Your message was sent, thank you!<br>
-				   </div>
-
-            </div>
-
-
-            <aside class="four columns footer-widgets">
-
-               <div class="widget widget_contact">
-
-					   <h4>Address and Phone</h4>
-					   <p class="address">
-						   Jonathan Doe<br>
-						   1600 Amphitheatre Parkway <br>
-						   Mountain View, CA 94043 US<br>
-						   <span>(123) 456-7890</span>
-					   </p>
-
-				   </div>
-
-               <div class="widget widget_tweets">
-
-                  <h4 class="widget-title">Latest Tweets</h4>
-
-                  <ul id="twitter">
-                     <li>
-                        <span>
-                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                        Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
-                        <a href="#">http://t.co/CGIrdxIlI3</a>
-                        </span>
-                        <b><a href="#">2 Days Ago</a></b>
-                     </li>
-                     <li>
-                        <span>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                        eaque ipsa quae ab illo inventore veritatis et quasi
-                        <a href="#">http://t.co/CGIrdxIlI3</a>
-                        </span>
-                        <b><a href="#">3 Days Ago</a></b>
-                     </li>
-                  </ul>
-
-		         </div>
-
-            </aside>
-
+   
+         <div class="ten columns">
+   
+               <p class="lead">Feel free to reach out to me for any inquiries, collaboration opportunities, or just a friendly chat. I'm always open to connecting with like-minded individuals and sharing knowledge!</p>
+   
+         </div>
+   
       </div>
-
+   
+      <div class="row">
+   
+         <div class="eight columns">
+            <form id="contactForm" name="contactForm" action="/api/sendEmail" method="post" onsubmit="submitForm(event)">
+              <fieldset>
+                <div>
+                  <label for="contactName">Name <span class="required">*</span></label>
+                  <input type="text" id="contactName" name="contactName" required>
+                </div>
+                <div>
+                  <label for="contactEmail">Email <span class="required">*</span></label>
+                  <input type="email" id="contactEmail" name="contactEmail" required>
+                </div>
+                <div>
+                  <label for="contactSubject">Subject</label>
+                  <input type="text" id="contactSubject" name="contactSubject">
+                </div>
+                <div>
+                  <label for="contactMessage">Message <span class="required">*</span></label>
+                  <textarea id="contactMessage" name="contactMessage" rows="15" required></textarea>
+                </div>
+                <div>
+                  <button type="submit">Submit</button>
+                  <span id="image-loader" style="display:none;">
+                    <img alt="" src="images/loader.gif">
+                  </span>
+                </div>
+              </fieldset>
+            </form>
+            <div id="message-warning">Error. Please try again.</div>
+            <div id="message-success">
+              <i class="fa fa-check"></i> Your message was sent, thank you!
+            </div>
+          </div>
+   
+         <aside class="four columns footer-widgets">
+   
+            <div class="widget widget_contact">
+   
+                  <h4>Address and Phone</h4>
+                  <p class="address">
+                      Soham Ghayal<br>
+                      Ashraya 10,New Ranip <br>
+                      Ahmedabad, Gujarat, 382480<br>
+                      <span>+91 9409453345</span>
+                  </p>
+   
+            </div>
+   
+           
+   
    </section> <!-- Contact Section End-->
-
-
    <!-- footer
    ================================================== -->
    <footer>
@@ -989,6 +1000,7 @@ ul.social li a:hover {
    </footer> <!-- Footer End-->
 
    <!-- Java Script
+
    ================================================== -->
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
@@ -999,7 +1011,69 @@ ul.social li a:hover {
    <script src="js/jquery.fittext.js"></script>
    <script src="js/magnific-popup.js"></script>
    <script src="js/init.js"></script>
-
+   <script>
+      window.onload = () => {
+         const skillBars = document.querySelectorAll('.bar-expand');
+         
+         // Loop through each skill bar and animate the width
+         skillBars.forEach(bar => {
+             const percent = bar.getAttribute('data-percent'); // Get the target width from the data-percent attribute
+             
+             // Create the soda bubbles as the bar grows
+             const bubbleCount = Math.floor(Math.random() * 5) + 2; // Random number of bubbles to appear
+             for (let i = 0; i < bubbleCount; i++) {
+                 const bubble = document.createElement('div');
+                 bubble.classList.add('bubble');
+                 bubble.style.left = `${Math.random() * 100}%`; // Random position across the width of the bar
+                 bar.appendChild(bubble); // Add the bubble to the bar
+             }
+             
+             // Delay the transition by a small time after page load
+             setTimeout(() => {
+                 bar.style.width = percent + '%'; // Set width to target percentage
+                 bar.style.animation = 'gradientAnimation 3s ease infinite'; // Add gradient animation on width change
+             }, 100); // Slight delay to allow transition to work smoothly
+         });
+      };
+   </script>
+   <script>
+      async function submitForm(event) {
+        event.preventDefault(); // Prevent form submission
+  
+        const form = document.getElementById('contactForm');
+        const formData = new FormData(form);
+  
+        document.getElementById('image-loader').style.display = 'inline'; // Show loader
+  
+        try {
+          const response = await fetch('/api/sendEmail', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              contactName: formData.get('contactName'),
+              contactEmail: formData.get('contactEmail'),
+              contactSubject: formData.get('contactSubject'),
+              contactMessage: formData.get('contactMessage'),
+            }),
+          });
+  
+          const result = await response.json();
+  
+          if (response.status === 200) {
+            document.getElementById('message-success').style.display = 'block'; // Show success message
+            form.reset(); // Reset the form
+          } else {
+            document.getElementById('message-warning').style.display = 'block'; // Show error message
+          }
+        } catch (error) {
+          document.getElementById('message-warning').style.display = 'block'; // Show error message
+        } finally {
+          document.getElementById('image-loader').style.display = 'none'; // Hide loader
+        }
+      }
+    </script>
 </body>
 
 </html>
