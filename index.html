@@ -918,7 +918,8 @@ ul.social li a:hover {
       <div class="row">
    
          <div class="eight columns">
-            <form id="contactForm" name="contactForm" action="https://formspree.io/f/meoegqeb" method="post">
+            <form id="contactForm" name="contactForm" action="/api/sendEmail" method="POST">
+
                 <fieldset>
                     <div>
                         <label for="contactName">Name <span class="required">*</span></label>
@@ -1040,31 +1041,26 @@ ul.social li a:hover {
    <script>
       document.getElementById('contactForm').addEventListener('submit', function(event) {
          event.preventDefault();
+         const form = new FormData(this);
      
-         const form = event.target;
-         const loader = document.getElementById('image-loader');
-         const messageWarning = document.getElementById('message-warning');
-         const messageSuccess = document.getElementById('message-success');
-     
-         loader.style.display = 'inline-block';
-         messageWarning.style.display = 'none';
-         messageSuccess.style.display = 'none';
-     
-         fetch(form.action, {
-             method: form.method,
-             body: new FormData(form)
+         fetch('/api/sendEmail', {
+             method: 'POST',
+             body: form
          })
          .then(response => response.json())
          .then(data => {
-             loader.style.display = 'none';
-             messageSuccess.style.display = 'block';
-             form.reset(); // Reset form after successful submission
+             if (data.success) {
+                 document.getElementById('message-success').style.display = 'block';
+                 document.getElementById('contactForm').reset();
+             } else {
+                 document.getElementById('message-warning').style.display = 'block';
+             }
          })
-         .catch(error => {
-             loader.style.display = 'none';
-             messageWarning.style.display = 'block';
+         .catch(() => {
+             document.getElementById('message-warning').style.display = 'block';
          });
      });
+     
      
     </script>
 </body>

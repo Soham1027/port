@@ -1,46 +1,25 @@
-// api/sendEmail.js
-const nodemailer = require('nodemailer');
-
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { contactName, contactEmail, contactSubject, contactMessage } = req.body;
+      const formData = new URLSearchParams(req.body);
 
-    // Basic validation
-    if (!contactName || !contactEmail || !contactMessage) {
-      return res.status(400).json({ message: 'Name, Email, and Message are required.' });
-    }
+      try {
+          const response = await fetch('https://formspree.io/f/meoegqeb', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: formData.toString(),
+          });
 
-    // Set up Nodemailer transport
-    const transporter = nodemailer.createTransport({
-      service: 'gmail', // You can use another email provider if you prefer
-      auth: {
-        user: process.env.EMAIL_USER, // Use environment variable for email
-        pass: process.env.EMAIL_PASS, // Use environment variable for password
-      },
-    });
-
-    // Define the email options
-    const mailOptions = {
-      from: contactEmail,
-      to: 'sohamghayal02@gmail.com', // Your recipient email
-      subject: contactSubject || 'Contact Form Submission',
-      html: `
-        <p>Email from: ${contactName}</p>
-        <p>Email address: ${contactEmail}</p>
-        <p>Message: </p>
-        <p>${contactMessage}</p>
-      `,
-    };
-
-    try {
-      // Send email
-      await transporter.sendMail(mailOptions);
-      res.status(200).json({ message: 'Message sent successfully' });
-    } catch (error) {
-      res.status(500).json({ message: 'Something went wrong. Please try again.' });
-    }
+          if (response.ok) {
+              return res.status(200).json({ success: true });
+          } else {
+              return res.status(500).json({ success: false, error: 'Form submission failed' });
+          }
+      } catch (error) {
+          return res.status(500).json({ success: false, error: error.message });
+      }
   } else {
-    // Method Not Allowed
-    res.status(405).json({ message: 'Method not allowed' });
+      return res.status(405).json({ success: false, error: 'Method Not Allowed' });
   }
 }
