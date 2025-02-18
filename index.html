@@ -161,38 +161,66 @@ header::before {
    padding-top: 20%;
    font-size: 3rem;
 }
+section {
+   scroll-margin-top: 70px; /* Adjust this based on your fixed header height */
+}
+
 
 /* Navigation Styling */
+/* ====== Navigation Styling ====== */
 #nav-wrap {
-   position: absolute;
+   position: fixed; /* Keeps navbar visible */
    top: 0;
    left: 0;
    right: 0;
-   padding: 20px;
-   z-index: 1;
+   width: 100%;
+   padding: 15px 0;
+   z-index: 1000; /* Ensures it's always on top */
+   background: rgba(0, 0, 0, 0.8); /* Slight transparency */
+   transition: background 0.3s ease;
 }
 
+/* Centering the navbar */
 .nav {
    list-style: none;
    text-align: center;
    padding: 0;
+   margin: 0;
 }
 
+/* Navbar items */
 .nav li {
    display: inline-block;
-   margin-right: 20px;
+   margin: 0 15px;
 }
 
+/* Navbar links */
 .nav li a {
+   display: block; /* Makes full area clickable */
+   padding: 10px 15px;
    color: #fff;
    font-size: 1.2rem;
    text-decoration: none;
    transition: color 0.3s ease;
 }
 
+/* Hover effect */
 .nav li a:hover {
-   color: #f39c12; /* Change to the desired hover color */
+   color: #f39c12; /* Change hover color */
 }
+
+/* Active section highlight */
+.nav li.current a {
+   color: #f39c12; /* Highlight current section */
+   font-weight: bold;
+}
+
+/* ====== Smooth Scrolling Fix ====== */
+/* Prevents sections from being covered by fixed navbar */
+section {
+   scroll-margin-top: 80px; /* Adjust based on navbar height */
+}
+
 
 /* Social Icons Styling */
 ul.social {
@@ -451,6 +479,7 @@ ul.social li a:hover {
       font-size: 24px;
       color: #fff;
    }
+ 
 
 
 </style>
@@ -623,7 +652,6 @@ ul.social li a:hover {
          </div> <!-- main-col end -->
 
       </div> <!-- End Education -->
-
 
       <!-- Work
       ----------------------------------------------- -->
@@ -1012,7 +1040,7 @@ ul.social li a:hover {
 
        </div>  
 
-   </section>  -->
+  </section>   -->
 
    <!-- Contact Section
    ================================================== -->
@@ -1049,6 +1077,7 @@ ul.social li a:hover {
      
   
   </section> <!-- Contact Section End -->
+  
   
   
    <!-- footer
@@ -1148,6 +1177,26 @@ ul.social li a:hover {
      
      
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".smoothscroll").forEach(anchor => {
+          anchor.addEventListener("click", function (event) {
+              event.preventDefault();
+              const targetId = this.getAttribute("href").substring(1);
+              const targetElement = document.getElementById(targetId);
+              if (targetElement) {
+                  window.scrollTo({
+                      top: targetElement.offsetTop - 50, // Adjust offset if needed
+                      behavior: "smooth"
+                  });
+              }
+          });
+      });
+  });
+  
+</script>
+
 </body>
 
 </html>
