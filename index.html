@@ -45,35 +45,79 @@
     }
 
     /* Style for the profile container */
-    .profile-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+/* Profile Container */
+.profile-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   padding: 20px 0;
+}
 
-    /* Card-like design for the profile picture */
-    .profile-card {
-        border-radius: 50%; /* Makes the image appear circular */
-        overflow: hidden; /* Ensures the image doesn't go outside the container */
-        width: 120px; /* Set the size of the profile image container */
-        height: 120px;
-        box-shadow: 0 0 15px 4px #00ffcc, 0 0 30px 6px #00ffcc; /* Default glow */
-        animation: neon-breathing 2s infinite; /* Apply the breathing animation */
-        transition: transform 0.3s ease; /* Smooth hover zoom-in */
-    }
+/* Profile Card */
+.profile-card {
+   display: flex; /* Ensures proper centering */
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   overflow: hidden;
+   width: 120px;
+   height: 120px;
+   box-shadow: 0 0 15px 4px #00ffcc, 0 0 30px 6px #00ffcc;
+   animation: neon-breathing 2s infinite alternate;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    /* Hover effect for the profile card */
-    .profile-card:hover {
-        transform: scale(1.1); /* Slight zoom-in effect */
-    }
+/* Hover Effect */
+.profile-card:hover {
+   transform: scale(1.1);
+   box-shadow: 0 0 20px 6px #00ffcc, 0 0 40px 8px #00ffcc;
+}
 
-    /* Styling for the profile image */
-    .profile-pic {
-        width: 120px; /* Matches the size of the container */
-        height: 120px;
-        object-fit: cover; /* Maintains aspect ratio and covers the container */
-        display: block; /* Ensures no extra margins or spacing */
-    }
+/* Profile Image */
+.profile-pic {
+   width: 100%; /* Adjusts automatically to profile-card */
+   height: 100%;
+   object-fit: cover;
+   display: block;
+}
+@media only screen and (max-width: 767px) {
+   #about .profile-pic {
+       width: 80px; /* Adjusts size for mobile */
+       height: 80px;
+       display: block; /* Ensures visibility */
+       margin: 0 auto; /* Centers it */
+   }
+}
+
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+   .profile-container {
+       flex-direction: column;
+   }
+
+   .profile-card {
+       width: 100px;
+       height: 100px;
+   }
+
+   .profile-pic {
+       width: 100%;
+       height: 100%;
+   }
+}
+
+/* Neon Animation */
+@keyframes neon-breathing {
+   0% {
+       box-shadow: 0 0 10px 3px #00ffcc, 0 0 20px 5px #00ffcc;
+   }
+   100% {
+       box-shadow: 0 0 20px 6px #00ffcc, 0 0 40px 8px #00ffcc;
+   }
+}
+
 
     h1 span {
       display: inline-block; /* Ensures the hover effect applies smoothly */
@@ -118,38 +162,66 @@ header::before {
    padding-top: 20%;
    font-size: 3rem;
 }
+section {
+   scroll-margin-top: 70px; /* Adjust this based on your fixed header height */
+}
+
 
 /* Navigation Styling */
+/* ====== Navigation Styling ====== */
 #nav-wrap {
-   position: absolute;
+   position: fixed; /* Keeps navbar visible */
    top: 0;
    left: 0;
    right: 0;
-   padding: 20px;
-   z-index: 1;
+   width: 100%;
+   padding: 15px 0;
+   z-index: 1000; /* Ensures it's always on top */
+   background: rgba(0, 0, 0, 0.8); /* Slight transparency */
+   transition: background 0.3s ease;
 }
 
+/* Centering the navbar */
 .nav {
    list-style: none;
    text-align: center;
    padding: 0;
+   margin: 0;
 }
 
+/* Navbar items */
 .nav li {
    display: inline-block;
-   margin-right: 20px;
+   margin: 0 15px;
 }
 
+/* Navbar links */
 .nav li a {
+   display: block; /* Makes full area clickable */
+   padding: 10px 15px;
    color: #fff;
    font-size: 1.2rem;
    text-decoration: none;
    transition: color 0.3s ease;
 }
 
+/* Hover effect */
 .nav li a:hover {
-   color: #f39c12; /* Change to the desired hover color */
+   color: #f39c12; /* Change hover color */
 }
+
+/* Active section highlight */
+.nav li.current a {
+   color: #f39c12; /* Highlight current section */
+   font-weight: bold;
+}
+
+/* ====== Smooth Scrolling Fix ====== */
+/* Prevents sections from being covered by fixed navbar */
+section {
+   scroll-margin-top: 80px; /* Adjust based on navbar height */
+}
+
 
 /* Social Icons Styling */
 ul.social {
@@ -320,7 +392,95 @@ ul.social li a:hover {
 }
 
 /* Optional: Add hover effect for icons */
+.profile-pic {
+   max-width: 100%;
+   height: auto;
+   display: block;
+   margin: 0 auto;
+}
 
+
+
+
+
+
+   #portfolio {
+      padding: 60px 0;
+   }
+
+   .text-center {
+      text-align: center;
+   }
+
+   .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+   }
+
+   .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+   }
+
+   .portfolio-item {
+      width: 100%;
+      max-width: 300px;
+      margin: 15px;
+   }
+
+   .item-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+   }
+
+   .item-wrap:hover {
+      transform: scale(1.05);
+   }
+
+   .item-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+   }
+
+   .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: 10px;
+   }
+
+   .item-wrap:hover .overlay {
+      opacity: 1;
+   }
+
+   .portfolio-item-meta {
+      text-align: center;
+   }
+
+   .link-icon {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: #fff;
+   }
+ 
 
 
 </style>
@@ -342,7 +502,7 @@ ul.social li a:hover {
          <ul id="nav" class="nav">
             <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
             <li><a class="smoothscroll" href="#about">About</a></li>
-	         <li><a class="smoothscroll" href="#resume">Resume</a></li>
+	         <li><a class="smoothscroll" href="#resume">Education</a></li>
             <li><a class="smoothscroll" href="#portfolio">Works</a></li>
             <!-- <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li> -->
             <li><a class="smoothscroll" href="#contact">Contact</a></li>
@@ -358,10 +518,9 @@ ul.social li a:hover {
            <ul class="social">
               
            
-              
-                           <li><a href="www.linkedin.com/in/soham-ghayal-805586158"><i class="fa fa-linkedin"></i></a></li>
-                           <li><a href="https://github.com/Soham1027"><i class="fa fa-github"></i></a></li>
-
+            <li><a href="https://www.linkedin.com/in/soham-ghayal-805586158" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/Soham1027" target="_blank"><i class="fa fa-github"></i></a></li>
+            
                         
                    
            
@@ -414,11 +573,12 @@ ul.social li a:hover {
                 </div>
 
                 <div class="columns download">
-                    <p>
-                        <a href="https://drive.google.com/uc?id=1LkeUbza0PcOhRexgwi7i1fHPGfNkt0Gw&export=download" class="button">
-                            <i class="fa fa-download"></i>Download Resume
-                        </a>
-                    </p>
+                  <p>
+                     <a href="https://drive.google.com/uc?id=1TSEfVgY_Gk0m-1F7ILZfWb0mgwGb_2vB&export=download" class="button">
+                         <i class="fa fa-download"></i> Download Resume
+                     </a>
+                 </p>
+                 
                 </div>
             </div> <!-- end row -->
         </div> <!-- end .main-col -->
@@ -493,7 +653,6 @@ ul.social li a:hover {
          </div> <!-- main-col end -->
 
       </div> <!-- End Education -->
-
 
       <!-- Work
       ----------------------------------------------- -->
@@ -594,154 +753,90 @@ ul.social li a:hover {
    ================================================== -->
    <section id="portfolio">
 
-      <div class="row">
-
-         <div class="twelve columns collapsed">
-
-            <h1>Check Out Some of My Works.</h1>
-
-            <!-- portfolio-wrapper -->
-            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
-
-          	   <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-01" title="">
-                        <img alt="" src="images/255_None_qKSUYh9d.jpeg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Goalactico</h5>
-                              <p>Web</p>
-          					   </div>
+      <div class="container">
+         <div class="row">
+            <div class="twelve columns text-center">
+               <h1>Check Out Some of My Works</h1>
+            </div>
+         </div>
+   
+         <div id="portfolio-wrapper" class="row">
+            <div class="columns portfolio-item">
+               <div class="item-wrap">
+                  <a href="#modal-01">
+                     <img src="images/255_None_qKSUYh9d.jpeg" alt="Goalactico">
+                     <div class="overlay">
+                        <div class="portfolio-item-meta">
+                           <h5>Goalactico</h5>
+                           <p>API Development</p>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-02" title="">
-                        <img alt="" src="images/portfolio/console.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Console</h5>
-                              <p>Web Development</p>
-          					   </div>
+                     </div>
+                    
+                  </a>
+               </div>
+            </div>
+   
+            <div class="columns portfolio-item">
+               <div class="item-wrap">
+                  <a href="#modal-02">
+                     <img src="images/AI-ML.jpeg" alt="Age Gender Detection">
+                     <div class="overlay">
+                        <div class="portfolio-item-meta">
+                           <h5>Age Gender Detection</h5>
+                           <p>AI/ML Development</p>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-03" title="">
-                        <img alt="" src="images/portfolio/judah.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Judah</h5>
-                              <p>Webdesign</p>
-          					   </div>
+                     </div>
+                    
+                  </a>
+               </div>
+            </div>
+   
+            <div class="columns portfolio-item">
+               <div class="item-wrap">
+                  <a href="#modal-03">
+                     <img src="images/todo.jpg" alt="Todo">
+                     <div class="overlay">
+                        <div class="portfolio-item-meta">
+                           <h5>Todo</h5>
+                           <p>Task Management Application</p>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-04" title="">
-                        <img alt="" src="images/portfolio/into-the-light.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Into The Light</h5>
-                              <p>Photography</p>
-          					   </div>
+                     </div>
+                    
+                  </a>
+               </div>
+            </div>
+   
+            <div class="columns portfolio-item">
+               <div class="item-wrap">
+                  <a href="#modal-04">
+                     <img src="images/student-management-system.png" alt="Student Management">
+                     <div class="overlay">
+                        <div class="portfolio-item-meta">
+                           <h5>Student Management</h5>
+                           <p>Management Application</p>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-05" title="">
-                        <img alt="" src="images/portfolio/farmerboy.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Farmer Boy</h5>
-                              <p>Branding</p>
-          					   </div>
+                     </div>
+                    
+                  </a>
+               </div>
+            </div>
+   
+            <div class="columns portfolio-item">
+               <div class="item-wrap">
+                  <a href="#modal-05">
+                     <img src="images/american-football-players-vector.jpg" alt="Sports Buddies">
+                     <div class="overlay">
+                        <div class="portfolio-item-meta">
+                           <h5>Sports Buddies</h5>
+                           <p>API Development</p>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-06" title="">
-                        <img alt="" src="images/portfolio/girl.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Girl</h5>
-                              <p>Photography</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-07" title="">
-                        <img alt="" src="images/portfolio/origami.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Origami</h5>
-                              <p>Illustrration</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-08" title="">
-                        <img alt="" src="images/portfolio/retrocam.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Retrocam</h5>
-                              <p>Web Development</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div>  <!-- item end -->
-
-            </div> <!-- portfolio-wrapper end -->
-
-         </div> <!-- twelve columns end -->
+                     </div>
+                    
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
 
 
          <!-- Modal Popup
@@ -758,7 +853,7 @@ ul.social li a:hover {
            </div>
 
             <div class="link-box">
-               <a href="https://github.com/Devansh1312/my">Details</a>
+               <a href="https://github.com/Soham1027/Goalactico" target="_blank">Details</a>
 		         <a class="popup-modal-dismiss">Close</a>
             </div>
 
@@ -766,16 +861,15 @@ ul.social li a:hover {
 
          <div id="modal-02" class="popup-modal mfp-hide">
 
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-console.jpg" alt="" />
+		      <img class="scale-with-grid" src="images/AI-ML.jpeg" alt="" />
 
 		      <div class="description-box">
-			      <h4>Console</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Branding, Web Development</span>
-		      </div>
+			      <h4>Age Gender Detection</h4>
+			      <p>Age Gender Detection from video or live feed</p>
+              	</div>
 
             <div class="link-box">
-               <a href="http://www.behance.net">Details</a>
+               <a href="https://github.com/Soham1027/CAFE_ANALYSIS_MANAGEMENT" target="_blank">Details</a>
 		         <a class="popup-modal-dismiss">Close</a>
             </div>
 
@@ -783,16 +877,16 @@ ul.social li a:hover {
 
          <div id="modal-03" class="popup-modal mfp-hide">
 
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-judah.jpg" alt="" />
+		      <img class="scale-with-grid" src="images/todo.jpg" alt="" />
 
 		      <div class="description-box">
-			      <h4>Judah</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Branding</span>
+			      <h4>Todo</h4>
+			      <p>This is a TODO application to manage your Tasks.</p>
+               
 		      </div>
 
             <div class="link-box">
-               <a href="http://www.behance.net">Details</a>
+               <a href="https://github.com/Soham1027/todonettify" target="_blank">Details</a>
 		         <a class="popup-modal-dismiss">Close</a>
             </div>
 
@@ -800,16 +894,16 @@ ul.social li a:hover {
 
          <div id="modal-04" class="popup-modal mfp-hide">
 
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-intothelight.jpg" alt="" />
+		      <img class="scale-with-grid" src="images/student-management-system.png" alt="" />
 
 		      <div class="description-box">
-			      <h4>Into the Light</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Photography</span>
+			      <h4>Student Management</h4>
+			      <p>This is a brief description of the Student Management system.</p>
+               
 		      </div>
 
             <div class="link-box">
-               <a href="http://www.behance.net">Details</a>
+               <a href="https://github.com/Soham1027/studentmanagementnew-new-features" target="_blank">Details</a>
 		         <a class="popup-modal-dismiss">Close</a>
             </div>
 
@@ -817,22 +911,23 @@ ul.social li a:hover {
 
          <div id="modal-05" class="popup-modal mfp-hide">
 
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-farmerboy.jpg" alt="" />
+		      <img class="scale-with-grid" src="images/american-football-players-vector.jpg" alt="" />
 
 		      <div class="description-box">
-			      <h4>Farmer Boy</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Branding, Webdesign</span>
+			      <h4>Sports Buddies</h4>
+			      <p>Sports Buddies is a community-driven app that connects sports enthusiasts, allowing them to find teammates for various activities and events.</p>
+               
 		      </div>
 
             <div class="link-box">
-               <a href="http://www.behance.net">Details</a>
+               <a href="https://github.com/Soham1027/Sports-Buddies" target="_blank">Details</a>
 		         <a class="popup-modal-dismiss">Close</a>
             </div>
+ 
+	      </div>
+         <!-- modal-05 End -->
 
-	      </div><!-- modal-05 End -->
-
-         <div id="modal-06" class="popup-modal mfp-hide">
+         <!-- <div id="modal-06" class="popup-modal mfp-hide">
 
 		      <img class="scale-with-grid" src="images/portfolio/modals/m-girl.jpg" alt="" />
 
@@ -845,11 +940,12 @@ ul.social li a:hover {
             <div class="link-box">
                <a href="http://www.behance.net">Details</a>
 		         <a class="popup-modal-dismiss">Close</a>
-            </div>
+            </div> -->
 
-	      </div><!-- modal-06 End -->
+	      <!-- </div> -->
+         <!-- modal-06 End -->
 
-         <div id="modal-07" class="popup-modal mfp-hide">
+         <!-- <div id="modal-07" class="popup-modal mfp-hide">
 
 		      <img class="scale-with-grid" src="images/portfolio/modals/m-origami.jpg" alt="" />
 
@@ -864,9 +960,10 @@ ul.social li a:hover {
 		         <a class="popup-modal-dismiss">Close</a>
             </div>
 
-	      </div><!-- modal-07 End -->
+	      </div> -->
+         <!-- modal-07 End -->
 
-         <div id="modal-08" class="popup-modal mfp-hide">
+         <!-- <div id="modal-08" class="popup-modal mfp-hide">
 
 		      <img class="scale-with-grid" src="images/portfolio/modals/m-retrocam.jpg" alt="" />
 
@@ -879,9 +976,10 @@ ul.social li a:hover {
             <div class="link-box">
                <a href="http://www.behance.net">Details</a>
 		         <a class="popup-modal-dismiss">Close</a>
-            </div>
+            </div> -->
 
-	      </div><!-- modal-01 End -->
+	      <!-- </div> -->
+         <!-- modal-01 End -->
 
 
       </div> <!-- row End -->
@@ -943,7 +1041,7 @@ ul.social li a:hover {
 
        </div>  
 
-   </section>  -->
+  </section>   -->
 
    <!-- Contact Section
    ================================================== -->
@@ -982,6 +1080,7 @@ ul.social li a:hover {
   </section> <!-- Contact Section End -->
   
   
+  
    <!-- footer
    ================================================== -->
    <footer>
@@ -995,8 +1094,10 @@ ul.social li a:hover {
               
            
               
-                  <li><a href="www.linkedin.com/in/soham-ghayal-805586158"><i class="fa fa-linkedin"></i></a></li>
-                  <li><a href="https://github.com/Soham1027"><i class="fa fa-github"></i></a></li>
+                   
+            <li><a href="https://www.linkedin.com/in/soham-ghayal-805586158" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/Soham1027" target="_blank"><i class="fa fa-github"></i></a></li>
+            
 
                
           
@@ -1079,6 +1180,26 @@ ul.social li a:hover {
      
      
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".smoothscroll").forEach(anchor => {
+          anchor.addEventListener("click", function (event) {
+              event.preventDefault();
+              const targetId = this.getAttribute("href").substring(1);
+              const targetElement = document.getElementById(targetId);
+              if (targetElement) {
+                  window.scrollTo({
+                      top: targetElement.offsetTop - 50, // Adjust offset if needed
+                      behavior: "smooth"
+                  });
+              }
+          });
+      });
+  });
+  
+</script>
+
 </body>
 
 </html>
