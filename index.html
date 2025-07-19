@@ -1086,7 +1086,6 @@ ul.social li a:hover {
    <section id="contact">
 
   <div class="row section-head">
-
     <div class="two columns header-col">
       <h1><span>Get In Touch.</span></h1>
     </div>
@@ -1097,22 +1096,21 @@ ul.social li a:hover {
         I'm always open to connecting with like-minded individuals and sharing knowledge!
       </p>
     </div>
-
   </div>
 
   <div class="row">
 
     <!-- Contact Form -->
     <div class="eight columns">
-      <form action="https://formsubmit.co/sohamghayal02@gmail.com" method="POST">
+      <form id="contact-form">
         <!-- Honeypot field to prevent bots -->
         <input type="text" name="_honey" style="display:none">
-        
+
         <!-- Disable Captcha -->
         <input type="hidden" name="_captcha" value="false">
-        
-        <!-- Redirect URL after successful form submission -->
-        <input type="hidden" name="_next" value="https://formsubmit.co/thanks.html">
+
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_next" value="">
 
         <fieldset>
           <div>
@@ -1140,6 +1138,11 @@ ul.social li a:hover {
           </div>
         </fieldset>
       </form>
+
+      <div id="form-response" style="display: none; text-align: center; margin-top: 20px;">
+        <p>✅ Thanks for connecting!</p>
+        <button id="send-again" style="display: none;">Send Another Message</button>
+      </div>
     </div>
 
     <!-- Contact Info -->
@@ -1155,9 +1158,9 @@ ul.social li a:hover {
       </p>
     </div>
 
-      </div>
+  </div>
 
-   </section> 
+</section>
   <!-- Contact Section End -->
   
   
@@ -1280,6 +1283,48 @@ ul.social li a:hover {
       });
   });
   
+</script>
+
+
+<script>
+  const form = document.getElementById('contact-form');
+  const responseDiv = document.getElementById('form-response');
+  const sendAgainBtn = document.getElementById('send-again');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Stop default form submission
+
+    const formData = new FormData(form);
+    
+
+
+    fetch("https://formsubmit.co/sohamghayal02@gmail.com", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        form.style.display = 'none';
+        responseDiv.style.display = 'block';
+        setTimeout(() => {
+          sendAgainBtn.style.display = 'inline-block';
+        }, 5000);
+      } else {
+        alert("There was an error. Please try again.");
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Something went wrong.");
+    });
+  });
+
+  sendAgainBtn.addEventListener('click', () => {
+    form.reset();
+    form.style.display = 'block';
+    responseDiv.style.display = 'none';
+    sendAgainBtn.style.display = 'none';
+  });
 </script>
 </body>
 
