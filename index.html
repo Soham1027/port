@@ -26,7 +26,7 @@
    ================================================== -->
 	<script src="js/modernizr.js"></script>
    <script defer src="https://cdn.vercel-insights.com/script.js"></script>
-   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+   <!-- <script src="https://cdn.emailjs.com/dist/email.min.js"></script> -->
    
 
   
@@ -676,7 +676,7 @@ ul.social li a:hover {
                 <p class="info">Jr. Python Developer <span>&bull;</span> <em class="date">June 2024 - Present</em></p> <em class="date">Vadodara</em></p>  
              
                 <p>
-                   I am currently working as a Jr. Python Developer at Redspark Technologies, where I focus on backend development using Python and Django. My role includes building and maintaining robust APIs with Django REST Framework. Additionally, I have worked extensively with FastAPI and WebSockets to implement real-time communication features and improve application performance. I'm also expanding my knowledge in AI and Machine Learning, which helps me stay ahead in backend development. Notable projects I've contributed to include live Age and Gender detection with object recognition, and my major project, Goalactico, a sports app designed to enhance team management and performance tracking.
+                   I am currently working as a Jr. Python Developer at Redspark Technologies, where I focus on backend development using Python and Django. My role includes building and maintaining robust APIs with Django REST Framework. Additionally, I have worked extensively with FastAPI and WebSockets to implement real-time communication features and improve application performance. I'm also expanding my knowledge in AI and Machine Learning, which helps me stay ahead in backend development. Notable projects I've contributed to include live Age and Gender detection with object recognition, and my major project, top-fotballmanagement, a sports app designed to enhance team management and performance tracking.
                 </p>
              
              </div>
@@ -768,10 +768,10 @@ ul.social li a:hover {
             <div class="columns portfolio-item">
                <div class="item-wrap">
                   <a href="#modal-01">
-                     <img src="images/255_None_qKSUYh9d.jpeg" alt="Goalactico">
+                     <img src="images/255_None_qKSUYh9d.jpeg" alt="top-fotballmanagement">
                      <div class="overlay">
                         <div class="portfolio-item-meta">
-                           <h5>Goalactico</h5>
+                           <h5>top-fotballmanagement</h5>
                            <p>API Development</p>
                         </div>
                      </div>
@@ -848,11 +848,11 @@ ul.social li a:hover {
 
          <div id="modal-01" class="popup-modal mfp-hide">
 
-		      <img class="scale-with-grid" src="images/255_None_qKSUYh9d.jpeg" alt="" />
+		      <img class="scale-with-grid" src="images/top-fotballmanagement.png" alt="" />
 
             <div class="description-box">
-               <h4>Goalactico</h4>
-               <p>Goalactico is a football-focused sports app designed to enhance the user experience. Whether you're tracking live scores, managing your team, or creating sports events and games, Goalactico brings you closer to the action.</p>
+               <h4>top-fotballmanagement</h4>
+               <p>top-fotballmanagement is a football-focused sports app designed to enhance the user experience. Whether you're tracking live scores, managing your team, or creating sports events and games, top-fotballmanagement brings you closer to the action.</p>
                <span class="categories"><i class="fa fa-tag"></i> Football, Sports, Mobile App, Live Scores</span>
            </div>
 
@@ -1098,44 +1098,57 @@ ul.social li a:hover {
       </div>
    </div>
 
-   <div class="row">
+    <div class="row">
       <!-- Contact Form -->
       <div class="eight columns">
-         <form id="contact-form">
-         <!-- Honeypot field to prevent bots -->
-         <input type="text" name="_honey" style="display:none">
+         <!-- 
+            WEB3FORMS SETUP INSTRUCTIONS:
+            1. Go to https://web3forms.com/
+            2. Enter your email: sohamghayal02@gmail.com
+            3. Copy the access key provided
+            4. Replace "YOUR_ACCESS_KEY_HERE" below with your actual key
+            5. That's it! No registration required, unlimited free submissions
+         -->
+         <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+            <!-- Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="86747c06-5882-436b-882d-adde941d0354">
+            
+            <!-- Optional: Subject line customization -->
+            <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
+            
+            <!-- Optional: Redirect after submission (create a thank-you page or remove this) -->
+            <!-- <input type="hidden" name="redirect" value="https://yourdomain.com/thank-you.html"> -->
+            
+            <!-- Honeypot field to prevent bots -->
+            <input type="checkbox" name="botcheck" style="display: none;">
 
-         <!-- Captcha Off -->
-         <input type="hidden" name="_captcha" value="false">
-
-         <!-- EmailJS field names -->
-         <fieldset>
-            <div>
-               <label for="name">Name <span class="required">*</span></label>
-               <input type="text" name="from_name" id="name" required />
-            </div>
-            <div>
-               <label for="email">Email <span class="required">*</span></label>
-               <input type="email" name="from_email" id="email" required />
-            </div>
-            <div>
-               <label for="subject">Subject</label>
-               <input type="text" name="subject" id="subject" />
-            </div>
-            <div>
-               <label for="message">Message <span class="required">*</span></label>
-               <textarea name="message" id="message" rows="6" required></textarea>
-            </div>
-            <div>
-               <button type="submit" class="submit">Send</button>
-            </div>
-         </fieldset>
+            <fieldset>
+               <div>
+                  <label for="name">Name <span class="required">*</span></label>
+                  <input type="text" name="name" id="name" placeholder="Your Name" required />
+               </div>
+               <div>
+                  <label for="email">Email <span class="required">*</span></label>
+                  <input type="email" name="email" id="email" placeholder="your.email@example.com" required />
+               </div>
+               <div>
+                  <label for="subject_field">Subject</label>
+                  <input type="text" name="subject_field" id="subject_field" placeholder="What's this about?" />
+               </div>
+               <div>
+                  <label for="message">Message <span class="required">*</span></label>
+                  <textarea name="message" id="message" rows="6" placeholder="Your message here..." required></textarea>
+               </div>
+               <div>
+                  <button type="submit" class="submit">Send Message</button>
+               </div>
+            </fieldset>
          </form>
 
-         <!-- Thanks Message -->
-         <div id="form-response" style="display: none; text-align: center; margin-top: 20px;">
-         <p>✅ Thanks for connecting!</p>
-         <button id="send-again" style="display: none;">Send Another Message</button>
+         <!-- Success/Error Message Container -->
+         <div id="form-response" style="display: none; text-align: center; margin-top: 20px; padding: 20px; border-radius: 5px;">
+            <p id="response-text"></p>
+            <button id="send-again" style="display: none; margin-top: 10px;" class="submit">Send Another Message</button>
          </div>
       </div>
 
@@ -1277,40 +1290,77 @@ ul.social li a:hover {
   });
   
 </script>
-<script>
-  // Initialize EmailJS
-  emailjs.init("Myy3LFNNO2Km-aBT4"); // Example: emailjs.init("oOeXXXc_UXXXX4");
+<!-- WEB3FORMS HANDLING SCRIPT -->
+   <script>
+      const form = document.getElementById('contact-form');
+      const responseDiv = document.getElementById('form-response');
+      const responseText = document.getElementById('response-text');
+      const sendAgainBtn = document.getElementById('send-again');
 
-  const form = document.getElementById('contact-form');
-  const responseDiv = document.getElementById('form-response');
-  const sendAgainBtn = document.getElementById('send-again');
+      form.addEventListener('submit', function (e) {
+         e.preventDefault();
+         
+         const formData = new FormData(form);
+         const object = Object.fromEntries(formData);
+         const json = JSON.stringify(object);
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+         // Show loading state
+         const submitBtn = form.querySelector('button[type="submit"]');
+         const originalText = submitBtn.textContent;
+         submitBtn.textContent = 'Sending...';
+         submitBtn.disabled = true;
 
-      const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const templateID = isDarkMode ? "template_z2xpx2g" : "template_f8kc02l";
-
-      emailjs.sendForm("service_x9cat4l", templateID, '#contact-form')
-      .then(() => {
-        form.style.display = 'none';
-        responseDiv.style.display = 'block';
-        setTimeout(() => {
-          sendAgainBtn.style.display = 'inline-block';
-        }, 5000);
-      }, (error) => {
-        console.error('FAILED...', error);
-        alert("Something went wrong. Please try again.");
+         fetch('https://api.web3forms.com/submit', {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json',
+                 'Accept': 'application/json'
+             },
+             body: json
+         })
+         .then(async (response) => {
+             let json = await response.json();
+             if (response.status == 200) {
+                 // Success
+                 form.style.display = 'none';
+                 responseDiv.style.display = 'block';
+                 responseDiv.style.background = '#d4edda';
+                 responseDiv.style.color = '#155724';
+                 responseDiv.style.border = '1px solid #c3e6cb';
+                 responseText.innerHTML = '✅ <strong>Thanks for connecting!</strong><br>Your message has been sent successfully.';
+                 sendAgainBtn.style.display = 'inline-block';
+             } else {
+                 // Error from server
+                 console.log(response);
+                 responseDiv.style.display = 'block';
+                 responseDiv.style.background = '#f8d7da';
+                 responseDiv.style.color = '#721c24';
+                 responseDiv.style.border = '1px solid #f5c6cb';
+                 responseText.innerHTML = '❌ <strong>Oops!</strong><br>' + (json.message || 'Something went wrong. Please try again.');
+                 submitBtn.textContent = originalText;
+                 submitBtn.disabled = false;
+             }
+         })
+         .catch(error => {
+             // Network error
+             console.log(error);
+             responseDiv.style.display = 'block';
+             responseDiv.style.background = '#f8d7da';
+             responseDiv.style.color = '#721c24';
+             responseDiv.style.border = '1px solid #f5c6cb';
+             responseText.innerHTML = '❌ <strong>Connection Error!</strong><br>Please check your internet connection and try again.';
+             submitBtn.textContent = originalText;
+             submitBtn.disabled = false;
+         });
       });
-  });
 
-  sendAgainBtn.addEventListener('click', () => {
-    form.reset();
-    form.style.display = 'block';
-    responseDiv.style.display = 'none';
-    sendAgainBtn.style.display = 'none';
-  });
-</script>
+      sendAgainBtn.addEventListener('click', () => {
+         form.reset();
+         form.style.display = 'block';
+         responseDiv.style.display = 'none';
+         sendAgainBtn.style.display = 'none';
+      });
+   </script>
 
 </body>
 
